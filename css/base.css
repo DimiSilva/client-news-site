@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none !important;
+  transition: all 0.3s ease;
+  font-family: 'tegomin';
+  color: white;
+}
+
+@font-face {
+  font-family: 'tegomin';
+  src: url('../assets/fonts/tegomin.ttf');
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}

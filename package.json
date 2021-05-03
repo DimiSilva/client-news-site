@@ -1,0 +1,23 @@
+{
+  "name": "client-news-site",
+  "version": "1.0.0",
+  "description": "1) O site deve ser construído com no mínimo 4 seções de notícias:",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimiSilva/client-news-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DimiSilva/client-news-site/issues"
+  },
+  "homepage": "https://github.com/DimiSilva/client-news-site#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
