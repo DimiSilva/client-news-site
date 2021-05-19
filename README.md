@@ -20,9 +20,9 @@ a) Esses dados devem ser lidos de um arquivo json, xml ou do Firebase. (X)
 
 4) Todas as páginas devem conter um menu e um rodapé (X)
 
-a) Menu deve conter no mínimo um link para cada seção do site e para o formulário de contato. O menu deve ter algum tipo de destaque quando o mouse está sobre cada item e identificar a página que está selecionada.
+a) Menu deve conter no mínimo um link para cada seção do site e para o formulário de contato. O menu deve ter algum tipo de destaque quando o mouse está sobre cada item e identificar a página que está selecionada. (X)
 
-b) O rodapé deve ter as informações de quem desenvolveu o site bem como o tipo de licenciamento do mesmo. O nome dos autores(as) deve aparecer explicitamente no rodapé.
+b) O rodapé deve ter as informações de quem desenvolveu o site bem como o tipo de licenciamento do mesmo. O nome dos autores(as) deve aparecer explicitamente no rodapé. (X)
 
 5) O site deve ser responsivo. (X)
 
@@ -34,7 +34,7 @@ b) O rodapé deve ter as informações de quem desenvolveu o site bem como o tip
 
 9) O projeto deve ser armazenado no github. (X)
 
-10) O site deve estar armazenado em algum provedor de hospedagem. Considerem utilizar o firebase que é gratuito.
+10) O site deve estar armazenado em algum provedor de hospedagem. Considerem utilizar o firebase que é gratuito. (X)
 
 11) Usuários registrados como administradores podem incluir notícias. O site deve ser visível de forma pública.
 
