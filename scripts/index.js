@@ -51,14 +51,34 @@ const loadLinkedToUserFeatures = () => {
 
     clearInterval(loadingInterval)
 
-    if (!logedUser) {
-      const liElement = document.createElement('li')
-      const aElement = document.createElement('a')
-      const imgElement = document.createElement('img')
-      imgElement.src = './assets/icons/login.svg'
-      aElement.appendChild(imgElement)
-      liElement.appendChild(aElement)
-      headerNavigationUl.appendChild(liElement)
+    const liElement = document.createElement('li')
+
+    const aElement = document.createElement('a')
+    aElement.title = 'Login'
+    if (logedUser) {
+      aElement.onclick = logout
+      aElement.title = 'Logout'
+    } else {
+      aElement.href = './pages/login.html'
+      aElement.title = 'Login'
     }
+
+    const imgElement = document.createElement('img')
+    imgElement.src = logedUser ? './assets/icons/logout.svg' : './assets/icons/login.svg'
+
+    aElement.appendChild(imgElement)
+
+    liElement.appendChild(aElement)
+
+    headerNavigationUl.appendChild(liElement)
   }, 1000)
+}
+
+const logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(res => {
+      window.location.replace('/')
+    })
 }
