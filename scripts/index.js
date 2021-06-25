@@ -1,18 +1,21 @@
 let newsBlock1Element = document.createElement('div')
 let newsBlock2Element = document.createElement('div')
 let searchInputElement = document.createElement('input')
+let headerNavigationUl = document.createElement('ul')
 
 let searchTimeout
 
 const onLoad = () => {
   loadElements()
   loadNews()
+  loadLinkedToUserFeatures()
 }
 
 const loadElements = () => {
   newsBlock1Element = document.getElementById('news-block-1')
   newsBlock2Element = document.getElementById('news-block-2')
   searchInputElement = document.getElementById('search-input')
+  headerNavigationUl = document.getElementById('header-navigation-ul')
 }
 
 const loadNews = () => {
@@ -39,5 +42,23 @@ const searchNews = () => {
 
   searchTimeout = setTimeout(() => {
     loadNews()
+  }, 1000)
+}
+
+const loadLinkedToUserFeatures = () => {
+  const loadingInterval = setInterval(() => {
+    if (loadingUser) return
+
+    clearInterval(loadingInterval)
+
+    if (!logedUser) {
+      const liElement = document.createElement('li')
+      const aElement = document.createElement('a')
+      const imgElement = document.createElement('img')
+      imgElement.src = './assets/icons/login.svg'
+      aElement.appendChild(imgElement)
+      liElement.appendChild(aElement)
+      headerNavigationUl.appendChild(liElement)
+    }
   }, 1000)
 }

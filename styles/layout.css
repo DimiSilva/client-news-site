@@ -76,27 +76,24 @@ main {
   display: flex;
   flex-direction: row;
   list-style: none;
-  color: white;
 }
 
 .header-navigation-ul li {
   padding: 0 16px;
   font-size: 20px;
-  cursor: pointer;
   font-size: 16px;
 }
 
-.header-navigation-ul li.current {
-  text-decoration: underline;
+.header-navigation-ul li.current a {
+  border-bottom: 3px solid white;
 }
 
 .header-navigation-ul li a {
-  text-decoration: none;
-  color: white;
+  cursor: pointer;
 }
 
-.header-navigation-ul :hover {
-  font-size: 18px;
+.header-navigation-ul li a:hover {
+  border-bottom: 3px solid white;
 }
 
 .footer-external-container {
