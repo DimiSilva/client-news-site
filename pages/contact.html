@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Site de Notícias</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/shared.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/contact.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="../scripts/toast.min.js"></script>
+    <script src="../scripts/env.js"></script>
+    <script src="../scripts/enums.js"></script>
+    <script src="../scripts/shared.js"></script>
+    <script src="../scripts/contact.js"></script>
+  </head>
+
+  <body onload="onLoad()">
+    <header class="header-external-container">
+      <div class="header-internal-container">
+        <div class="header-title-and-search-container">
+          <div class="header-title-container">
+            <h1>Site de Notícias</h1>
+          </div>
+        </div>
+        <nav class="header-navigation">
+          <ul class="header-navigation-ul">
+            <li>
+              <a href="../index.html">Principal</a>
+            </li>
+            <li>
+              <a href="./politic.html">Política</a>
+            </li>
+            <li>
+              <a href="./education.html">Educação</a>
+            </li>
+            <li><a href="./health.html">Saúde</a></li>
+            <li class="current"><a href="./contact.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="external-container">
+        <div class="internal-container">
+          <h1 class="default-title">FALE CONOSCO</h1>
+          <form>
+            <div class="default-input-container">
+              <label class="default-input-label" for="email-input">E-mail:</label>
+              <input class="default-input" type="text" id="email-input" />
+            </div>
+            <div class="default-input-container">
+              <label class="default-input-label" for="name-input">Nome:</label>
+              <input class="default-input" type="text" id="name-input" />
+            </div>
+            <div class="default-input-container">
+              <label class="default-input-label" for="comment-input">Comentário:</label>
+              <textarea class="default-input" id="comment-input"></textarea>
+            </div>
+            <div class="default-action-buttons-container">
+              <input type="button" value="Realizar Cadastro" class="default-button default-button-success-theme" onclick="sendComment()" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-external-container">
+      <div class="footer-internal-container">
+        <div class="powered-by-container"><span>Desenvolvido por: </span> Edmilson Nelson da Silva Junior e Israel Fernandes Pereira</div>
+        <div class="licenisng-container">Copyright © 2021. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,48 +1,113 @@
 .news-card-container {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 8px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 8px;
 }
 
 .news-card-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .news-card-informations-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 16px;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  z-index: 1;
 }
 
-.news-card-title-container {}
+.news-card-title-container {
+}
 
 .news-card-title-container h1 {
-    width: 40vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  width: 40vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .news-card-author-container {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .news-card-category-container {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .news-card-read-more-container {
-    padding-top: 8px;
-    font-size: 18px;
-    text-transform: uppercase;
+  padding-top: 8px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.default-title {
+  color: black;
+  font-weight: 1000;
+  margin-bottom: 32px;
+}
+
+.default-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+}
+
+.default-input-label {
+  color: black;
+  font-weight: 600;
+}
+
+.default-input {
+  color: black;
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid #e0e1dd;
+  background-color: #ffffff;
+  padding: 8px;
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.default-input:focus {
+  background-color: #e0e1dd;
+}
+
+.default-action-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.default-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid #888888;
+  background-color: #aaaaaa;
+}
+
+.default-button:hover {
+  background-color: #bbbbbb;
+  cursor: pointer;
+}
+
+.default-button-success-theme {
+  border: 1px solid #008800;
+  background-color: #00aa00;
+}
+
+.default-button-success-theme:hover {
+  background-color: #00bb00;
+  cursor: pointer;
 }
