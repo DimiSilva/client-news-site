@@ -1,13 +1,16 @@
 let emailInput = document.createElement('input')
 let passwordInput = document.createElement('input')
+let headerNavigationUl = document.createElement('ul')
 
 const onLoad = () => {
   loadElements()
+  loadLinkedToUserFeatures(headerNavigationUl)
 }
 
 const loadElements = () => {
   emailInput = document.getElementById('email-input')
   passwordInput = document.getElementById('password-input')
+  headerNavigationUl = document.getElementById('header-navigation-ul')
 }
 
 const login = () => {

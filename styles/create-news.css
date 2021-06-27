@@ -1,0 +1,30 @@
+.external-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 64px;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.internal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+  height: 100%;
+  border: 1px solid #33333333;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.internal-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}

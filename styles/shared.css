@@ -77,6 +77,10 @@
   max-height: 200px;
 }
 
+.default-input option {
+  color: black;
+}
+
 .default-input:focus {
   background-color: #e0e1dd;
 }

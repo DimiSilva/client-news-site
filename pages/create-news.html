@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/base.css" />
     <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
     <link rel="stylesheet" type="text/css" href="../styles/shared.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/create-news.css" />
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
@@ -16,7 +16,7 @@
     <script src="../scripts/enums.js"></script>
     <script src="../scripts/components.js"></script>
     <script src="../scripts/shared.js"></script>
-    <script src="../scripts/login.js"></script>
+    <script src="../scripts/create-news.js"></script>
   </head>
 
   <body onload="onLoad()">
@@ -51,18 +51,35 @@
     <main>
       <div class="external-container">
         <div class="internal-container">
-          <h1 class="default-title">LOGIN</h1>
+          <h1 class="default-title">CRIAR NOTÍCIA</h1>
           <form>
             <div class="default-input-container">
-              <label class="default-input-label" for="email-input">E-mail:</label>
-              <input class="default-input" type="text" id="email-input" />
+              <label class="default-input-label" for="title-input">Título:</label>
+              <input class="default-input" type="text" id="title-input" />
             </div>
             <div class="default-input-container">
-              <label class="default-input-label" for="password-input">Senha:</label>
-              <input class="default-input" type="password" id="password-input" />
+              <label class="default-input-label" for="author-input">Autor:</label>
+              <input class="default-input" type="text" id="author-input" />
+            </div>
+            <div class="default-input-container">
+              <label class="default-input-label" for="category-input">Categoria:</label>
+              <select class="default-input" type="text" id="category-input">
+                <option value="">Selecione uma categoria</option>
+                <option value="health">Saúde</option>
+                <option value="education">Educação</option>
+                <option value="politics">Política</option>
+              </select>
+            </div>
+            <div class="default-input-container">
+              <label class="default-input-label" for="image-url-input">Link da imagem:</label>
+              <input class="default-input" type="text" id="image-url-input" />
+            </div>
+            <div class="default-input-container">
+              <label class="default-input-label" for="text-input">Texto:</label>
+              <textarea class="default-input" type="text" id="text-input"></textarea>
             </div>
             <div class="default-action-buttons-container">
-              <input type="button" value="Login" class="default-button default-button-success-theme" onclick="login()" />
+              <input type="button" value="Criar Notícia" class="default-button default-button-success-theme" onclick="createNews()" />
             </div>
           </form>
         </div>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/base.css" />
     <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
     <link rel="stylesheet" type="text/css" href="../styles/shared.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/home.css" />
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
@@ -16,7 +16,7 @@
     <script src="../scripts/enums.js"></script>
     <script src="../scripts/components.js"></script>
     <script src="../scripts/shared.js"></script>
-    <script src="../scripts/login.js"></script>
+    <script src="../scripts/home.js"></script>
   </head>
 
   <body onload="onLoad()">
@@ -26,11 +26,17 @@
           <div class="header-title-container">
             <h1>Site de Notícias</h1>
           </div>
+          <div class="header-search-input-container">
+            <div class="header-search-input-icon-container">
+              <img src="../assets/icons/search.svg" />
+            </div>
+            <input id="search-input" oninput="searchNews()" />
+          </div>
         </div>
         <nav class="header-navigation">
           <ul class="header-navigation-ul" id="header-navigation-ul">
-            <li>
-              <a title="Principal" href="../index.html"><img src="../assets/icons/home.svg" /></a>
+            <li class="current">
+              <a title="Principal"><img src="../assets/icons/home.svg" /></a>
             </li>
             <li>
               <a title="Política" href="./politic.html"><img src="../assets/icons/politics.svg" /></a>
@@ -50,22 +56,9 @@
     </header>
     <main>
       <div class="external-container">
-        <div class="internal-container">
-          <h1 class="default-title">LOGIN</h1>
-          <form>
-            <div class="default-input-container">
-              <label class="default-input-label" for="email-input">E-mail:</label>
-              <input class="default-input" type="text" id="email-input" />
-            </div>
-            <div class="default-input-container">
-              <label class="default-input-label" for="password-input">Senha:</label>
-              <input class="default-input" type="password" id="password-input" />
-            </div>
-            <div class="default-action-buttons-container">
-              <input type="button" value="Login" class="default-button default-button-success-theme" onclick="login()" />
-            </div>
-          </form>
-        </div>
+        <div id="news-block-1" class="news-block"></div>
+
+        <div id="news-block-2" class="news-block"></div>
       </div>
     </main>
     <footer class="footer-external-container">

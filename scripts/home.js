@@ -8,7 +8,7 @@ let searchTimeout
 const onLoad = () => {
   loadElements()
   loadNews()
-  loadLinkedToUserFeatures()
+  loadLinkedToUserFeatures(headerNavigationUl)
 }
 
 const loadElements = () => {
@@ -31,8 +31,8 @@ const loadNews = () => {
       const treatedNewsList = newsList.docs.map(news => ({ id: news.id, ...news.data() }))
 
       treatedNewsList.forEach((news, index) => {
-        if (index <= 2) newsBlock1Element.appendChild(createNewsElement(news))
-        else newsBlock2Element.appendChild(createNewsElement(news))
+        if (index <= 2) newsBlock1Element.appendChild(createNewsComponent(news))
+        else newsBlock2Element.appendChild(createNewsComponent(news))
       })
     })
 }
@@ -43,42 +43,4 @@ const searchNews = () => {
   searchTimeout = setTimeout(() => {
     loadNews()
   }, 1000)
-}
-
-const loadLinkedToUserFeatures = () => {
-  const loadingInterval = setInterval(() => {
-    if (loadingUser) return
-
-    clearInterval(loadingInterval)
-
-    const liElement = document.createElement('li')
-
-    const aElement = document.createElement('a')
-    aElement.title = 'Login'
-    if (logedUser) {
-      aElement.onclick = logout
-      aElement.title = 'Logout'
-    } else {
-      aElement.href = './pages/login.html'
-      aElement.title = 'Login'
-    }
-
-    const imgElement = document.createElement('img')
-    imgElement.src = logedUser ? './assets/icons/logout.svg' : './assets/icons/login.svg'
-
-    aElement.appendChild(imgElement)
-
-    liElement.appendChild(aElement)
-
-    headerNavigationUl.appendChild(liElement)
-  }, 1000)
-}
-
-const logout = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(res => {
-      window.location.replace('/')
-    })
 }
