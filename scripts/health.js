@@ -5,6 +5,9 @@ let headerNavigationUl = document.createElement('ul')
 
 let searchTimeout
 
+let likedNews = []
+let newsToRender = []
+
 const onLoad = () => {
   loadElements()
   const loadingInterval = setInterval(() => {
@@ -36,11 +39,34 @@ const loadNews = () => {
     .get()
     .then(newsList => {
       const treatedNewsList = newsList.docs.map(news => ({ id: news.id, ...news.data() }))
-      treatedNewsList.forEach((news, index) => {
-        if (index <= 2) newsBlock1Element.appendChild(createNewsComponent(news))
-        else newsBlock2Element.appendChild(createNewsComponent(news))
-      })
+      newsToRender = treatedNewsList
+
+      renderNews()
     })
+}
+
+const renderNews = () => {
+  newsBlock1Element.innerHTML = ''
+  newsBlock2Element.innerHTML = ''
+
+  newsToRender.forEach((news, index) => {
+    const liked = likedNews.find(liked => liked.newsId === news.id)
+
+    if (index <= 2) newsBlock1Element.appendChild(createNewsComponent(news, !!liked, () => (!!liked ? unlikeNews(liked.id) : likeNews(news.id))))
+    else newsBlock2Element.appendChild(createNewsComponent(news, !!liked, () => (!!liked ? unlikeNews(liked.id) : likeNews(news.id))))
+  })
+}
+
+const likeNews = async newsId => {
+  await likeNewsDBCall(newsId)
+  likedNews = await getLikedNews()
+  renderNews()
+}
+
+const unlikeNews = async likedId => {
+  await unlikeNewsDBCall(likedId)
+  likedNews = await getLikedNews()
+  renderNews()
 }
 
 const searchNews = () => {
