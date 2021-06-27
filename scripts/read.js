@@ -6,8 +6,14 @@ let searchTimeout
 
 const onLoad = () => {
   loadElements()
-  loadNews()
-  loadLinkedToUserFeatures(headerNavigationUl)
+  const loadingInterval = setInterval(() => {
+    if (loadingUser) return
+
+    clearInterval(loadingInterval)
+
+    loadNews()
+    loadLinkedToUserFeatures(headerNavigationUl)
+  }, 1000)
 }
 
 const loadElements = () => {

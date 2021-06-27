@@ -1,8 +1,9 @@
-const createNewsComponent = ({ id = '', title = '', category = '', author = '', image = '' }) => {
+const createNewsComponent = ({ id = '', title = '', category = '', author = '', image = '' }, liked, onClickLike) => {
   const newsElement = document.createElement('div')
   newsElement.classList = 'news-card-container'
 
   const imgElement = document.createElement('img')
+  imgElement.classList = 'background'
   imgElement.src = image || '../assets/images/newspaper.jpg'
   imgElement.alt = title
   newsElement.appendChild(imgElement)
@@ -39,6 +40,15 @@ const createNewsComponent = ({ id = '', title = '', category = '', author = '', 
   readMoreTextElement.innerHTML = 'Leia Mais'
   readMoreAnchorElement.appendChild(readMoreTextElement)
   newsCardReadMoreContainer.appendChild(readMoreAnchorElement)
+  if (!!logedUser) {
+    const likeButtonElement = document.createElement('button')
+    likeButtonElement.onclick = onClickLike
+    likeButtonElement.title = 'Curtir'
+    const likeButtonImgElement = document.createElement('img')
+    likeButtonImgElement.src = liked ? '../assets/icons/like-full.svg' : '../assets/icons/like-empty.svg'
+    likeButtonElement.appendChild(likeButtonImgElement)
+    newsCardReadMoreContainer.appendChild(likeButtonElement)
+  }
   newsCardInformationsContainerElement.appendChild(newsCardReadMoreContainer)
 
   newsElement.appendChild(newsCardInformationsContainerElement)
@@ -76,5 +86,11 @@ const createNavLogoutButtonComponent = () => createNavButtonComponent(undefined,
 const createNavCreateNewsButtonComponent = () => {
   const liElement = createNavButtonComponent('../pages/create-news.html', undefined, 'Criar Notícia', '../assets/icons/create-news.svg')
   if (window.location.pathname === '/pages/create-news.html') liElement.classList = 'current'
+  return liElement
+}
+
+const createNavLikedButtonComponent = () => {
+  const liElement = createNavButtonComponent('../pages/liked-news.html', undefined, 'Notícias Curtidas', '../assets/icons/liked.svg')
+  if (window.location.pathname === '/pages/liked-news.html') liElement.classList = 'current'
   return liElement
 }

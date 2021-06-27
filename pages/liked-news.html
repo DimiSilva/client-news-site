@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Site de Notícias</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/shared.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/liked-news.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="../scripts/toast.min.js"></script>
+    <script src="../scripts/env.js"></script>
+    <script src="../scripts/user.js"></script>
+    <script src="../scripts/enums.js"></script>
+    <script src="../scripts/components.js"></script>
+    <script src="../scripts/shared.js"></script>
+    <script src="../scripts/liked-news.js"></script>
+  </head>
+
+  <body onload="onLoad()">
+    <header class="header-external-container">
+      <div class="header-internal-container">
+        <div class="header-title-and-search-container">
+          <div class="header-title-container">
+            <h1>Site de Notícias</h1>
+          </div>
+          <div class="header-search-input-container">
+            <div class="header-search-input-icon-container">
+              <img src="../assets/icons/search.svg" />
+            </div>
+            <input id="search-input" oninput="searchNews()" />
+          </div>
+        </div>
+        <nav class="header-navigation">
+          <ul class="header-navigation-ul" id="header-navigation-ul">
+            <li>
+              <a title="Principal" href="./home.html"><img src="../assets/icons/home.svg" /></a>
+            </li>
+            <li>
+              <a title="Política" href="./politic.html"><img src="../assets/icons/politics.svg" /></a>
+            </li>
+            <li>
+              <a title="Educação" href="./education.html"><img src="../assets/icons/education.svg" /></a>
+            </li>
+            <li>
+              <a title="Saúde" href="./health.html"><img src="../assets/icons/health.svg" /></a>
+            </li>
+            <li>
+              <a title="Contato" href="./contact.html"><img src="../assets/icons/contact.svg" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="external-container">
+        <div id="news-block-1" class="news-block"></div>
+
+        <div id="news-block-2" class="news-block"></div>
+      </div>
+    </main>
+    <footer class="footer-external-container">
+      <div class="footer-internal-container">
+        <div class="powered-by-container"><span>Desenvolvido por: </span> Edmilson Nelson da Silva Junior e Israel Fernandes Pereira</div>
+        <div class="licenisng-container">Copyright © 2021. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

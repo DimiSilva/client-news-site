@@ -22,20 +22,15 @@ const toastErrorOptions = {
 }
 
 const loadLinkedToUserFeatures = headerNavigationUl => {
-  const loadingInterval = setInterval(() => {
-    if (loadingUser) return
-
-    clearInterval(loadingInterval)
-
-    if (logedUser) {
-      if (logedUserData.type === userTypesEnum.ADMIN) {
-        headerNavigationUl.appendChild(createNavCreateNewsButtonComponent())
-      }
-      headerNavigationUl.appendChild(createNavLogoutButtonComponent())
-    } else {
-      headerNavigationUl.appendChild(createNavLoginButtonComponent())
+  if (logedUser) {
+    headerNavigationUl.appendChild(createNavLikedButtonComponent())
+    if (logedUserData.type === userTypesEnum.ADMIN) {
+      headerNavigationUl.appendChild(createNavCreateNewsButtonComponent())
     }
-  }, 1000)
+    headerNavigationUl.appendChild(createNavLogoutButtonComponent())
+  } else {
+    headerNavigationUl.appendChild(createNavLoginButtonComponent())
+  }
 }
 
 const logout = () => {
@@ -46,5 +41,58 @@ const logout = () => {
       window.location.replace('/')
     })
 }
+
+const shuffleArray = array => {
+  const newArray = [...array]
+  let currentIndex = newArray.length,
+    randomIndex
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+    ;[newArray[currentIndex], newArray[randomIndex]] = [newArray[randomIndex], newArray[currentIndex]]
+  }
+
+  return newArray
+}
+
+const likeNewsDBCall = newsId =>
+  new Promise((resolve, reject) =>
+    db
+      .collection('news-likes')
+      .where('userId', '==', logedUser.uid)
+      .where('newsId', '==', newsId)
+      .get()
+      .then(newsList => {
+        const treatedNewsList = newsList.docs.map(news => ({ id: news.id, ...news.data() }))
+
+        if (!treatedNewsList[0]) {
+          db.collection('news-likes').add({
+            userId: logedUser.uid,
+            newsId: newsId
+          })
+          return resolve()
+        } else return reject()
+      })
+  )
+
+const unlikeNewsDBCall = likedId =>
+  new Promise(resolve =>
+    db
+      .collection('news-likes')
+      .doc(likedId)
+      .delete()
+      .then(() => resolve())
+  )
+
+const getLikedNews = () =>
+  db
+    .collection('news-likes')
+    .where('userId', '==', logedUser.uid)
+    .get()
+    .then(newsList => {
+      const treatedNewsList = newsList.docs.map(news => ({ id: news.id, ...news.data() }))
+      return treatedNewsList
+    })
 
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)

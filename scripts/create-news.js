@@ -7,7 +7,13 @@ let headerNavigationUl = document.createElement('ul')
 
 const onLoad = () => {
   loadElements()
-  loadLinkedToUserFeatures(headerNavigationUl)
+  const loadingInterval = setInterval(() => {
+    if (loadingUser) return
+
+    clearInterval(loadingInterval)
+
+    loadLinkedToUserFeatures(headerNavigationUl)
+  }, 1000)
 }
 
 const loadElements = () => {
@@ -33,7 +39,7 @@ const createNews = () => {
       title: titleInput.value,
       author: authorInput.value,
       category: categoryInput.value,
-      imageUrl: imageUrlInput.value,
+      image: imageUrlInput.value,
       text: textInput.value
     })
     .then(_ => {

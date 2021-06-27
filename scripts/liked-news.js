@@ -36,9 +36,8 @@ const loadNews = () => {
     .get()
     .then(newsList => {
       const treatedNewsList = newsList.docs.map(news => ({ id: news.id, ...news.data() }))
-      const randomizedArray = shuffleArray(treatedNewsList)
-
-      newsToRender = randomizedArray.slice(0, 6)
+      const likedNewsList = treatedNewsList.filter(news => likedNews.some(liked => liked.newsId === news.id))
+      newsToRender = likedNewsList.slice(0, 6)
 
       renderNews()
     })
@@ -52,7 +51,7 @@ const renderNews = () => {
     const liked = likedNews.find(liked => liked.newsId === news.id)
 
     if (index <= 2) newsBlock1Element.appendChild(createNewsComponent(news, !!liked, () => (!!liked ? unlikeNews(liked.id) : likeNews(news.id))))
-    else newsBlock2Element.appendChild(createNewsComponent(news, !!liked, () => (!!liked ? unlikeNews(liked.id) : likeNews(news.id))))
+    else newsBlock2Element.appendChild(createNewsComponent(news, !!liked, () => likeNews(news.id)))
   })
 }
 

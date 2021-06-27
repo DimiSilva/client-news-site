@@ -5,7 +5,13 @@ let headerNavigationUl = document.createElement('ul')
 
 const onLoad = () => {
   loadElements()
-  loadLinkedToUserFeatures(headerNavigationUl)
+  const loadingInterval = setInterval(() => {
+    if (loadingUser) return
+
+    clearInterval(loadingInterval)
+
+    loadLinkedToUserFeatures(headerNavigationUl)
+  }, 1000)
 }
 
 const loadElements = () => {
